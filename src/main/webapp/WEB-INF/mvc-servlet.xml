@@ -16,7 +16,7 @@
     <mvc:annotation-driven/>
 
     <!--静态资源-->
-    <mvc:resources mapping="/static/**"  location="/static/">
+    <mvc:resources mapping="/static/**" location="/static/">
         <mvc:cache-control max-age="3600" cache-public="true"/>
     </mvc:resources>
     <!--视图解析器-->

@@ -16,7 +16,7 @@ public class Book implements Serializable{
     private String bookname;
     private String bookauthor;
     private Float bookprice;
-    private Integer bookmum;
+    private Integer booknum;
     private Integer typeid;
     private Integer pubid;
 

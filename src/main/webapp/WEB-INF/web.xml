@@ -34,9 +34,12 @@
         <servlet-name>mvc</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!--加载Spring容器-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
     <!--指定Spring容器加载的配置文件地址-->
     <context-param>
         <param-name>contextConfigLocation</param-name>

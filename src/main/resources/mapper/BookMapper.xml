@@ -5,35 +5,33 @@
 <mapper namespace="com.seanna.mapper.BookMapper">
     <cache/>
     <insert id="save" parameterType="Book">
-        insert into t_book(bookname,bookprice,bookauthor,booknum,typeid,pubid,bookpic)
-                values(#{bookname},#{bookprice},#{bookauthor},#{booknum},#{typeid},#{pubid},'')
+        INSERT INTO t_book (bookname, bookprice, bookauthor, booknum, typeid, pubid, bookpic)
+        VALUES (#{bookname}, #{bookprice}, #{bookauthor}, #{booknum}, #{typeid}, #{pubid}, '')
     </insert>
+    <select id="findAll" resultType="Book">
+        SELECT t_book.*,
+        t_booktype.id as 'bookType.id',t_booktype.booktype as 'bookType.bookType',
+        t_publisher.id as 'publisher.id',t_publisher.pubname as 'publisher.pubname'
+        FROM t_book
+        inner join t_booktype on t_book.typeid=t_booktype.id
+        inner join t_publisher on t_book.pubid=t_publisher.id
+        ORDER BY t_book.id DESC
+    </select>
+    <delete id="del" parameterType="int">
+        DELETE FROM t_book
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="Book">
+        UPDATE t_book
+        SET bookname = #{bookname}, bookauthor = #{bookauthor}, booknum = #{booknum}, bookprice = #{bookprice},
+            typeid   = #{typeid}, pubid = #{pubid}
+        WHERE id = #{id}
+    </update>
+    <select id="findById" resultType="Book">
+        SELECT *
+        FROM t_book
+        WHERE id = #{id}
+    </select>
+
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
