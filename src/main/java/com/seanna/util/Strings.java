@@ -11,7 +11,7 @@ public class Strings {
             try {
                 return new String(str.getBytes("ISO8859-1"),"UTF-8");
             } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException("字符串转码异常1");
+                throw new RuntimeException("字符串转码异常");
             }
         }
         return "";
